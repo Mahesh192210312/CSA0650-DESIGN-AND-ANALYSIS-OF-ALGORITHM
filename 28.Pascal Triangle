@@ -1,0 +1,30 @@
+#include <stdio.h>
+int factorial(int n) {
+    int fact = 1;
+    for (int i = 1; i <= n; i++) {
+        fact *= i;
+    }
+    return fact;
+}
+int binomialCoeff(int n, int k) {
+    return factorial(n) / (factorial(k) * factorial(n - k));
+}
+void printPascal(int n) {
+    for (int line = 0; line < n; line++) {
+        for (int i = 0; i < n - line - 1; i++) {
+            printf(" ");
+        }
+        for (int i = 0; i <= line; i++) {
+            printf("%d ", binomialCoeff(line, i));
+        }
+        printf("\n");
+    }
+}
+int main() {
+    int n;
+    printf("M.Mahesh-192210312\n");
+    printf("Enter the number of rows in Pascal's Triangle: ");
+    scanf("%d", &n);
+    printPascal(n);
+    return 0;
+}
