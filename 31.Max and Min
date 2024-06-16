@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <limits.h> 
+#define MAX_SIZE 100 
+int main() {
+	printf("M.Mahesh-192210312\n");
+    int n, i;
+    int arr[MAX_SIZE];
+    int min_val = INT_MAX; 
+    int max_val = INT_MIN; 
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
+    printf("Enter %d elements:\n", n);
+    for (i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+        if (arr[i] < min_val) {
+            min_val = arr[i];
+        }
+        if (arr[i] > max_val) {
+            max_val = arr[i];
+        }
+    }
+    printf("Minimum value: %d\n", min_val);
+    printf("Maximum value: %d\n", max_val);
+
+    return 0;
+}
