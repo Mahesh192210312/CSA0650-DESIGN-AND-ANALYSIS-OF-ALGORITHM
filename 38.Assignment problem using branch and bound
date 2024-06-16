@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <limits.h>
+#define N 4 
+void branchAndBound(int costMatrix[N][N], int assigned[N], int totalCost, int worker, int *minCost) {
+    if (worker == N) {
+        if (totalCost < *minCost) {
+            *minCost = totalCost;
+        }
+        return;
+    }
+    for (int task = 0; task < N; task++) {
+        if (assigned[task] == 0) {
+            assigned[task] = 1;
+            branchAndBound(costMatrix, assigned, totalCost + costMatrix[worker][task], worker + 1, minCost);
+            assigned[task] = 0;
+        }
+    }
+}
+void solveAssignmentProblem(int costMatrix[N][N]) {
+    int assigned[N] = {0}; 
+    int minCost = INT_MAX; 
+    branchAndBound(costMatrix, assigned, 0, 0, &minCost);
+    printf("M.Mahesh-192210312\n");
+    printf("Minimum cost of assignment: %d\n", minCost);
+}
+
+int main() {
+    int costMatrix[N][N] = {
+        {9, 2, 7, 8},
+        {6, 4, 3, 7},
+        {5, 8, 1, 8},
+        {7, 6, 9, 4}
+    };
+
+    solveAssignmentProblem(costMatrix);
+
+    return 0;
+}
