@@ -1,0 +1,14 @@
+#include<stdio.h>
+int main(){
+	int n,a,b=0;
+	printf("M.Mahesh-192210312\n");
+	printf("enter the number:\n");
+	scanf("%d",&n);
+	while(n!=0){
+		a=n%10;
+		b+=a;
+		n=n/10;
+	}
+	printf("sum of given number:%d",b);
+	return 0;
+}
